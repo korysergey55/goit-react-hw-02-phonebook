@@ -1,13 +1,18 @@
-import React from 'react';
-import styles from './Phonebook.module.css';
+import React from "react";
+import styles from "./Phonebook.module.css";
 import PropTypes from "prop-types";
 
-const Phonebook = () => {
+const Phonebook = ({
+ handleInputNameChange,
+ handleInputNumberChange,
+ createNewContact,
+}) => {
  return (
   <form className={styles.mainForm}>
    <div className={styles.inputContainer}>
     <label className={styles.labelName}>Name</label>
     <input
+     onChange={handleInputNameChange}
      type="text"
      name="name"
      className={styles.inputName}
@@ -17,12 +22,11 @@ const Phonebook = () => {
      placeholder="Enter Name"
     ></input>
    </div>
-   <button type="button" className={styles.buttonAddContact}>
-    Add contact
-   </button>
+
    <div className={styles.inputContainer}>
     <label className={styles.labelName}>Number</label>
     <input
+     onChange={handleInputNumberChange}
      type="tel"
      name="number"
      className={styles.inputName}
@@ -31,8 +35,14 @@ const Phonebook = () => {
      required
     />
    </div>
+   <button
+    type="button"
+    className={styles.buttonAddContact}
+    onClick={createNewContact}
+   >
+    Add contact
+   </button>
   </form>
  );
 };
-
 export default Phonebook;
