@@ -1,6 +1,6 @@
 .mainForm {
-    width: 500px;
- margin-left: 30%;
+ width: 500px;
+ margin: 0 auto;
  padding: 10px;
  border: 1px solid black;
 }
@@ -10,7 +10,7 @@
  justify-content: center;
 }
 .labelName {
- display: inline-block;
+ display: block;
  margin-bottom: 20px;
  font-size: 25px;
  font-weight: 500;
@@ -18,7 +18,7 @@
 .inputName {
  display: block;
  max-width: 200px;
- height: 50px;
+ height: 30px;
  margin-bottom: 30px;
  padding-left: 10px;
  border-radius: 5px;
@@ -28,8 +28,11 @@
  outline: 4px solid #2196f3;
  cursor: pointer;
 }
-.buttonAddContact:hover{
-    border-radius: 5px;
-cursor: pointer;
-background-color: rgb(79, 79, 243);
+.buttonAddContact {
+ margin-bottom: 20px;
+}
+.buttonAddContact:hover {
+ border-radius: 5px;
+ cursor: pointer;
+ background-color: rgb(79, 79, 243);
 }
