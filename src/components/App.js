@@ -67,7 +67,8 @@ class App extends Component {
     </Section>
 
     <Section title={"Contacts"}>
-     <Filter filter={this.state.filter} filterContacts={this.filterContacts} />
+     <Filter filter={this.state.filter} 
+     filterContacts={this.filterContacts} />
 
      <ContactList
       filteredContacts={filteredContacts}
