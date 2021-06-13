@@ -3,7 +3,7 @@ import styles from "./ContactForm.module.css";
 import PropTypes from "prop-types";
 
 class ContactForm extends Component {
-    
+
  static propTypes = {
   submitNewContact: PropTypes.func.isRequired,
   findDuplicate: PropTypes.func.isRequired,
@@ -14,20 +14,16 @@ class ContactForm extends Component {
   number: "",
  };
 
- handleInputChange = (evt) => {
+ saveInputValueToState = (evt) => {
   this.setState({
    [evt.target.name]: evt.target.value,
   });
-  console.log(this.state);
-  console.log("name-ok");
- };
+};
 
  handleSubmitForm = (evt) => {
   evt.preventDefault();
   this.props.submitNewContact(this.state);
-  console.log("createNewContact-ok");
-  console.log(this.state);
-
+  
   this.props.findDuplicate(this.state.name);
   this.resetForm();
  };
@@ -43,7 +39,7 @@ class ContactForm extends Component {
      <div className={styles.inputContainer}>
       <label className={styles.labelName}>Name</label>
       <input
-       onChange={this.handleInputChange}
+       onChange={this.saveInputValueToState}
        type="text"
        name="name"
        className={styles.inputName}
@@ -57,7 +53,7 @@ class ContactForm extends Component {
      <div className={styles.inputContainer}>
       <label className={styles.labelName}>Number</label>
       <input
-       onChange={this.handleInputChange}
+       onChange={this.saveInputValueToState}
        type="tel"
        name="number"
        className={styles.inputName}

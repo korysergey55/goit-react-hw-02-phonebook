@@ -17,7 +17,7 @@ class App extends Component {
  };
 
  submitNewContact = (data) => {
-       
+
   const newTodo = {
    name: data.name,
    number: data.number,
@@ -41,7 +41,7 @@ class App extends Component {
  };
 
  filterContacts = (id) => {
-        console.log('ok');
+    console.log('ok');
 //   this.setState((prevState) => ({
 //    contacts: prevState.contacts.map((contact) =>
 //     contact.id === id ? { contacts: contact } : { contacts: this.state.contacts }
@@ -56,7 +56,6 @@ class App extends Component {
  };
 
  render() {
-
 // const formattedFilter = this.state.filter.toLowerCase().trim();
 // const filteredItems = this.state.contacts.filter((contact) =>
 //  contact.name.toLowerCase().includes(formattedFilter)
