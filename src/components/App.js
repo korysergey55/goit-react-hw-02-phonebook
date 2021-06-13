@@ -17,7 +17,6 @@ class App extends Component {
  };
 
  submitNewContact = (data) => {
-
   const newTodo = {
    name: data.name,
    number: data.number,
@@ -40,26 +39,24 @@ class App extends Component {
   }
  };
 
- filterContacts = (id) => {
-    console.log('ok');
-//   this.setState((prevState) => ({
-//    contacts: prevState.contacts.map((contact) =>
-//     contact.id === id ? { contacts: contact } : { contacts: this.state.contacts }
-//    ),
-//   }));
- };
-
  handleDelete = (id) => {
   this.setState((prevState) => ({
    contacts: prevState.contacts.filter((contact) => contact.id !== id),
   }));
  };
 
+ filterContacts = (evt) => {
+  this.setState({
+   [evt.target.name]: evt.target.value,
+  });
+ };
+
  render() {
-// const formattedFilter = this.state.filter.toLowerCase().trim();
-// const filteredItems = this.state.contacts.filter((contact) =>
-//  contact.name.toLowerCase().includes(formattedFilter)
-// );
+  const formattedContacts = this.state.filter.toLowerCase().trim();
+  const filteredContacts = this.state.contacts.filter((contact) =>
+   contact.name.toLowerCase().includes(formattedContacts)
+  );
+
   return (
    <>
     <Section title={"Phonebook"}>
@@ -70,12 +67,10 @@ class App extends Component {
     </Section>
 
     <Section title={"Contacts"}>
-     <Filter
-      filterContacts={this.filterContacts}
-      // filteredItems={filteredItems}
-     />
+     <Filter filter={this.state.filter} filterContacts={this.filterContacts} />
+
      <ContactList
-      contacts={this.state.contacts}
+      filteredContacts={filteredContacts}
       handleDelete={this.handleDelete}
      />
     </Section>

@@ -1,12 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes, { object } from "prop-types";
 import styles from "./ContactList.module.css";
 
-const ContactList = ({ contacts,  handleDelete }) => {
+const ContactList = ({ filteredContacts, handleDelete }) => {
  return (
   <div className={styles.mainContainer}>
    <ul>
-    {contacts.map((contact) => (
+    {filteredContacts.map((contact) => (
      <li className={styles.newContact} key={contact.id}>
       <p className={styles.newContactName}>
        {contact.name} : {contact.number}
@@ -26,7 +26,7 @@ const ContactList = ({ contacts,  handleDelete }) => {
 };
 
 ContactList.propTypes = {
- contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+ filteredContacts: PropTypes.arrayOf(object).isRequired,
  handleDelete: PropTypes.func.isRequired,
 };
 

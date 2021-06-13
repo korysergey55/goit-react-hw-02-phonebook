@@ -2,7 +2,8 @@
  width: 500px;
  margin: 0 auto;
  padding: 10px;
- border: 1px solid black;
+ border: 7px solid rgb(111, 136, 247);
+ border-radius: 7px;
 }
 .inputContainer {
  display: flex;
@@ -30,9 +31,11 @@
 }
 .buttonAddContact {
  margin-bottom: 20px;
+ padding: 5px;
 }
 .buttonAddContact:hover {
  border-radius: 5px;
  cursor: pointer;
- background-color: rgb(79, 79, 243);
+ background-color: rgb(111, 111, 250);
+ color: white;
 }
