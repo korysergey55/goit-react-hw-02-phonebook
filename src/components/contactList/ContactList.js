@@ -5,7 +5,7 @@ import styles from "./ContactList.module.css";
 const ContactList = ({ filteredContacts, handleDelete }) => {
  return (
   <div className={styles.mainContainer}>
-   <ul>
+    <ul>
     {filteredContacts.map((contact) => (
      <li className={styles.newContact} key={contact.id}>
       <p className={styles.newContactName}>
@@ -26,7 +26,13 @@ const ContactList = ({ filteredContacts, handleDelete }) => {
 };
 
 ContactList.propTypes = {
- filteredContacts: PropTypes.arrayOf(object).isRequired,
+ filteredContacts: PropTypes.arrayOf(
+  PropTypes.shape({
+   id: PropTypes.string.isRequired,
+   name: PropTypes.string.isRequired,
+   number: PropTypes.string.isRequired,
+  })
+ ),
  handleDelete: PropTypes.func.isRequired,
 };
 
