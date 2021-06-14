@@ -3,7 +3,6 @@ import styles from "./ContactForm.module.css";
 import PropTypes from "prop-types";
 
 class ContactForm extends Component {
-
  static propTypes = {
   submitNewContact: PropTypes.func.isRequired,
   findDuplicate: PropTypes.func.isRequired,
@@ -18,14 +17,15 @@ class ContactForm extends Component {
   this.setState({
    [evt.target.name]: evt.target.value,
   });
-};
+ };
 
  handleSubmitForm = (evt) => {
   evt.preventDefault();
-  this.props.submitNewContact(this.state);
-  
-  this.props.findDuplicate(this.state.name);
-  this.resetForm();
+
+  if (this.props.findDuplicate(this.state.name)) {
+   this.props.submitNewContact(this.state);
+   this.resetForm();
+  }
  };
 
  resetForm = () => {

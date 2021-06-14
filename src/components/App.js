@@ -30,13 +30,19 @@ class App extends Component {
  };
 
  findDuplicate = (newContactName) => {
+    if (!newContactName) {
+     alert("The field cannot be empty!");
+     return false;
+    }
   const isDublicate = this.state.contacts.some(
    (contact) => contact.name === newContactName
   );
+
   if (isDublicate) {
    alert("This Name already exist!" + newContactName);
-   return;
+    return false;
   }
+   return true;
  };
 
  handleDelete = (id) => {
@@ -55,6 +61,7 @@ class App extends Component {
   const formattedContacts = this.state.filter.toLowerCase().trim();
   const filteredContacts = this.state.contacts.filter((contact) =>
    contact.name.toLowerCase().includes(formattedContacts)
+   
   );
 
   return (
@@ -67,7 +74,8 @@ class App extends Component {
     </Section>
 
     <Section title={"Contacts"}>
-     <Filter filter={this.state.filter} 
+     <Filter 
+     filter={this.state.filter} 
      filterContacts={this.filterContacts} />
 
      <ContactList
